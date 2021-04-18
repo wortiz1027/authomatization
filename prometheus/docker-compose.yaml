@@ -1,0 +1,43 @@
+version: '3.7'
+
+services:
+  server_prometheus:
+    image: prom/prometheus
+    container_name: server_prometheus
+    hostname: server_prometheus
+    restart: always
+    ports:
+      - 9000:9090
+    volumes:
+      - ./config/prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - ntw_backend
+  server_grafana:
+    image: grafana/grafana
+    container_name: server_grafana
+    hostname: server_grafana
+    restart: always
+    depends_on:
+      - server_prometheus
+    ports:
+      - 3000:3000    
+    networks:
+      - ntw_backend
+  server_portainer:
+    image: portainer/portainer
+    container_name: server_portainer
+    hostname: server_portainer
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - data_portainer:/data
+    ports:
+      - 9001:9000
+    networks:
+      - ntw_backend
+volumes:
+  data_portainer:
+
+networks:
+  ntw_backend:
+    external: true   

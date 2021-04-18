@@ -1,0 +1,11 @@
+global:
+    scrape_interval: 5s # How frequently to scrape targets by default
+  
+scrape_configs:
+    - job_name: 'spike-alfa'                      # The job name is assigned to scraped metrics by default.
+      metrics_path: '/monitor/actuator/prometheus'  # The HTTP resource path on which to fetch metrics from targets.
+      scrape_interval: 5s                           # How frequently to scrape targets from this job.
+      static_configs:                               # A static_config allows specifying a list of targets and a common label set for them
+        - targets: ['server-config:6170']    # server-config
+        - targets: ['server-discovery:6171'] # server-eureka
+        - targets: ['server-gateway:6172']   # server-gateway

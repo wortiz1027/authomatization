@@ -1,0 +1,26 @@
+version: '3.7'
+services:
+  server_events:
+    image: rabbitmq:management
+    container_name: server_events
+    hostname: server_events
+    restart: always
+    ports:
+      - 5672:5672
+      - 15672:15672
+    networks:
+      - ntw_backend
+    environment:
+      - RABBITMQ_DEFAULT_USER=spike
+      - RABBITMQ_DEFAULT_PASS=Spike2021++
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 300M  
+volumes:
+  rabbit-config:
+
+networks:
+  ntw_backend:
+    external: true
