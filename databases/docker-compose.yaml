@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+  db_bills:
+    image: mysql:5.7.31
+    container_name: db_bills
+    hostname: db_bills
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 'mysql'
+      MYSQL_DATABASE: 'billsdb'
+      MYSQL_USER: 'bills'
+      MYSQL_PASSWORD: 'bills2021++'
+      MYSQL_ROOT_HOST: '%'
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./scripts/mysql-bills-schema-v0.1.sql:/docker-entrypoint-initdb.d/mysql-bills-schema-v0.1.sql
+    networks:
+      - ntw_backend
+networks:
+  ntw_backend:
+    external: true
+
