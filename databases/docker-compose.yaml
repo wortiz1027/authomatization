@@ -13,9 +13,43 @@ services:
       MYSQL_PASSWORD: 'bills2021++'
       MYSQL_ROOT_HOST: '%'
     ports:
-      - '3306:3306'
+      - '3301:3306'
     volumes:
       - ./scripts/mysql-bills-schema-v0.1.sql:/docker-entrypoint-initdb.d/mysql-bills-schema-v0.1.sql
+    networks:
+      - ntw_backend
+  db_clients:
+    image: mysql:5.7.31
+    container_name: db_clients
+    hostname: db_clients
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 'mysql'
+      MYSQL_DATABASE: 'clientsdb'
+      MYSQL_USER: 'clients'
+      MYSQL_PASSWORD: 'clients2021++'
+      MYSQL_ROOT_HOST: '%'
+    ports:
+      - '3302:3306'
+    volumes:
+      - ./scripts/mysql-clients-schema-v0.1.sql:/docker-entrypoint-initdb.d/mysql-clients-schema-v0.1.sql
+    networks:
+      - ntw_backend
+  db_products:
+    image: mysql:5.7.31
+    container_name: db_products
+    hostname: db_products
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 'mysql'
+      MYSQL_DATABASE: 'productssdb'
+      MYSQL_USER: 'products'
+      MYSQL_PASSWORD: 'products2021++'
+      MYSQL_ROOT_HOST: '%'
+    ports:
+      - '3303:3306'
+    volumes:
+      - ./scripts/mysql-products-schema-v0.1.sql:/docker-entrypoint-initdb.d/mysql-products-schema-v0.1.sql
     networks:
       - ntw_backend
 networks:
