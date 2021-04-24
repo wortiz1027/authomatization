@@ -42,7 +42,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 'mysql'
-      MYSQL_DATABASE: 'productssdb'
+      MYSQL_DATABASE: 'productsdb'
       MYSQL_USER: 'products'
       MYSQL_PASSWORD: 'products2021++'
       MYSQL_ROOT_HOST: '%'
