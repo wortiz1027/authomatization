@@ -6,8 +6,8 @@ services:
     hostname: svc-bills
     restart: always
     ports:
-      - 8081
-      - 6181
+      - 8081:8081
+      - 6181:6181
     environment:
       - SERVER_CONFIG=http://server-config:7070
       - SERVER_DISCOVERY=http://server-discovery:7071/eureka
@@ -25,8 +25,8 @@ services:
     hostname: svc-clients
     restart: always
     ports:
-      - 8082
-      - 6182
+      - 8082:8082
+      - 6182:6182
     environment:
       - SERVER_CONFIG=http://server-config:7070
       - SERVER_DISCOVERY=http://server-discovery:7071/eureka
@@ -44,8 +44,8 @@ services:
     hostname: svc-products
     restart: always
     ports:
-      - 8083
-      - 6183
+      - 8083:8083
+      - 6183:6183
     environment:
       - SERVER_CONFIG=http://server-config:7070
       - SERVER_DISCOVERY=http://server-discovery:7071/eureka
