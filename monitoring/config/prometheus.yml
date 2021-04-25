@@ -9,3 +9,6 @@ scrape_configs:
         - targets: ['server-config:6170']    # server-config
         - targets: ['server-discovery:6171'] # server-eureka
         - targets: ['server-gateway:6172']   # server-gateway
+        - targets: ['svc-bills:6181']    # server-config
+        - targets: ['svc-clients:6182'] # server-eureka
+        - targets: ['svc-products:6183']   # server-gateway

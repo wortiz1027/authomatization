@@ -1,0 +1,44 @@
+version: '3.7'
+services:
+  server-config:
+    image: wortiz1027/server-config:latest
+    container_name: server-config
+    hostname: server-config
+    restart: always
+    ports:
+      - 7070:7070
+      - 6170:6170
+    environment:
+      - SERVER_CONFIG=http://server-config:7070
+    networks:
+      - ntw_backend
+  server-discovery:
+    image: wortiz1027/server-discovery:latest
+    container_name: server-discovery
+    hostname: server-discovery
+    restart: always
+    ports:
+      - 7071:7071
+      - 6171:6171
+    environment:
+      - SERVER_CONFIG=http://server-config:7070
+    networks:
+      - ntw_backend
+  server-gateway:
+    image: wortiz1027/server-gateway:latest
+    container_name: server-gateway
+    hostname: server-gateway
+    restart: always
+    ports:
+      - 7072:7072
+      - 6172:6172
+    environment:
+      - SERVER_CONFIG=http://server-config:7070
+      - SVC_BILLS_HOST=svc-bills
+      - SVC_CLIENTS_HOST=svc-clients
+      - SVC_PRODUCTS_HOST=svc-products
+    networks:
+      - ntw_backend
+networks:
+  ntw_backend:
+    external: true

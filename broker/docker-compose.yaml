@@ -1,9 +1,9 @@
 version: '3.7'
 services:
-  server_events:
+  server-broker:
     image: rabbitmq:management
-    container_name: server_events
-    hostname: server_events
+    container_name: server-broker
+    hostname: server-broker
     restart: always
     ports:
       - 5672:5672
