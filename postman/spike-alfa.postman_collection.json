@@ -1,0 +1,137 @@
+{
+	"info": {
+		"_postman_id": "f44e1526-d2a8-4a97-9c21-14817e8846c5",
+		"name": "spike-alfa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get-bills",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL_BILLS}}/bills/api/v1/bills",
+					"host": [
+						"{{BASE_URL_BILLS}}"
+					],
+					"path": [
+						"bills",
+						"api",
+						"v1",
+						"bills"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-bill-by-sequence",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL_BILLS}}/bills/api/v1/bills/59981659",
+					"host": [
+						"{{BASE_URL_BILLS}}"
+					],
+					"path": [
+						"bills",
+						"api",
+						"v1",
+						"bills",
+						"59981659"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-clients",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL_CLIENTS}}/clients/api/v1/clients",
+					"host": [
+						"{{BASE_URL_CLIENTS}}"
+					],
+					"path": [
+						"clients",
+						"api",
+						"v1",
+						"clients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-client-by-dni",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL_CLIENTS}}/clients/api/v1/clients/94675998V",
+					"host": [
+						"{{BASE_URL_CLIENTS}}"
+					],
+					"path": [
+						"clients",
+						"api",
+						"v1",
+						"clients",
+						"94675998V"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL_PRODUCTS}}/products/api/v1/products",
+					"host": [
+						"{{BASE_URL_PRODUCTS}}"
+					],
+					"path": [
+						"products",
+						"api",
+						"v1",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-product-by-code",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL_PRODUCTS}}/products/api/v1/products?codes=I7IPPG0LH5,I03DMXT9R7,DZZU0HDWPV",
+					"host": [
+						"{{BASE_URL_PRODUCTS}}"
+					],
+					"path": [
+						"products",
+						"api",
+						"v1",
+						"products"
+					],
+					"query": [
+						{
+							"key": "codes",
+							"value": "I7IPPG0LH5,I03DMXT9R7,DZZU0HDWPV"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
