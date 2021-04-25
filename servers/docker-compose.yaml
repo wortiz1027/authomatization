@@ -34,6 +34,7 @@ services:
       - 6172:6172
     environment:
       - SERVER_CONFIG=http://server-config:7070
+      - SERVER_DISCOVERY=http://server-discovery:7071/eureka
       - SVC_BILLS_HOST=svc-bills
       - SVC_CLIENTS_HOST=svc-clients
       - SVC_PRODUCTS_HOST=svc-products

@@ -13,6 +13,8 @@ services:
       - SERVER_DISCOVERY=http://server-discovery:7071/eureka
       - SERVER_DISCOVERY_HOST=server-discovery
       - SERVER_BROKER_HOST=server-broker
+      - DB_BILLS_HOST=db_bills
+      - DB_BILLS_PORT=3306
     networks:
       - ntw_backend
   svc-clients:
@@ -28,6 +30,8 @@ services:
       - SERVER_DISCOVERY=http://server-discovery:7071/eureka
       - SERVER_DISCOVERY_HOST=server-discovery
       - SERVER_BROKER_HOST=server-broker
+      - DB_CLIENTS_HOST=db_clients
+      - DB_CLIENTS_PORT=3306
     networks:
       - ntw_backend
   svc-products:
@@ -43,6 +47,8 @@ services:
       - SERVER_DISCOVERY=http://server-discovery:7071/eureka
       - SERVER_DISCOVERY_HOST=server-discovery
       - SERVER_BROKER_HOST=server-broker
+      - DB_PRODUCTS_HOST=db_products
+      - DB_PRODUCTS_PORT=3306
     networks:
       - ntw_backend
 networks:
